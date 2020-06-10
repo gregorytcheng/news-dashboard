@@ -1,74 +1,36 @@
-import React, { useEffect, useState } from "react";
-import { getIndices } from "../../services/NewsFeedService";
+import React, { useContext } from "react";
 import { Grid, Icon } from "semantic-ui-react";
 import IndexTableEntry from "./IndexTableEntry";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { reorder, getItemStyle, getListStyle } from "./../../utils/DragUtils";
+import IndexContext from "../../contexts/IndexContext";
 
 const IndexTable = () => {
+  const { indexOrder, setIndexOrder, indexData } = useContext(IndexContext);
+
   const onDragEnd = (result) => {
     // If the result is dropped outside of the list, do nothing
     if (!result.destination) {
       return;
     }
 
-    const newItems = reorder(
-      items,
+    const newIndices = reorder(
+      indexOrder,
       result.source.index,
       result.destination.index
     );
 
-    setItems(newItems);
+    setIndexOrder(newIndices);
   };
-
-  const [indices, setIndices] = useState(undefined);
-  const [items, setItems] = useState([
-    {
-      symbol: "GSPC",
-      country: "us",
-    },
-    {
-      symbol: "DJI",
-      country: "us",
-    },
-    {
-      symbol: "FTSE",
-      country: "uk",
-    },
-    {
-      symbol: "STOXX50E",
-      country: "eu",
-    },
-    {
-      symbol: "99001.SZ",
-      country: "cn",
-    },
-    {
-      symbol: "HSI",
-      country: "hk",
-    },
-    {
-      symbol: "N225",
-      country: "jp",
-    },
-  ]);
-
-  useEffect(() => {
-    getIndices()
-      .then((data) => {
-        setIndices(data.results);
-      })
-      .catch((error) => console.log(error));
-  }, []);
 
   return (
     <>
-      {indices !== undefined ? (
+      {indexData !== undefined ? (
         <DragDropContext onDragEnd={onDragEnd}>
           <Grid
             divided
             stackable
-            columns={items.length}
+            columns={indexOrder.length}
             style={{ paddingTop: "3em", paddingBottom: "3em" }}
           >
             <Droppable droppableId="droppable" direction="horizontal">
@@ -78,7 +40,7 @@ const IndexTable = () => {
                   style={getListStyle(snapshot.isDraggingOver)}
                   {...provided.droppableProps}
                 >
-                  {items.map((item, index) => (
+                  {indexOrder.map((item, index) => (
                     <Grid.Column key={item.symbol}>
                       <Draggable draggableId={item.symbol} index={index}>
                         {(provided, snapshot) => (
@@ -92,7 +54,7 @@ const IndexTable = () => {
                             )}
                           >
                             <IndexTableEntry
-                              index={indices[item.symbol]}
+                              index={indexData[item.symbol]}
                               countryCode={item.country}
                             />
                           </div>

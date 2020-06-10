@@ -9,7 +9,7 @@ export const getHeadlines = (source) => {
     .catch((error) => console.log(error));
 };
 
-export const getIndices = () => {
+export const getIndexData = () => {
   return axios
     .get("https://news-dashboard-flask.herokuapp.com/indices")
     .then((response) => {
