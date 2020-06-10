@@ -1,13 +1,12 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
 import NewsFeed from "./NewsFeed";
-import IndexTable from "./IndexTable";
+import IndexTable from "./IndexTable/IndexTable";
 
 const Homepage = () => {
   return (
     <>
       <IndexTable style={{ paddingTop: "2em" }} />
-
       <Grid columns={3} divided stackable>
         <Grid.Row>
           <Grid.Column>
