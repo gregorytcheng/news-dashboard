@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from "semantic-ui-react";
 import NewsFeed from "./NewsFeed";
 import IndexTable from "./IndexTable/IndexTable";
+import CustomizeIndexOrder from "./CustomizeIndexOrder/CustomizeIndexOrder";
 
 const Homepage = () => {
   return (
@@ -20,6 +21,7 @@ const Homepage = () => {
           </Grid.Column>
         </Grid.Row>
       </Grid>
+      <CustomizeIndexOrder />
     </>
   );
 };

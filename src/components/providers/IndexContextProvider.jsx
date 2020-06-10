@@ -39,7 +39,6 @@ const IndexContextProvider = ({ children }) => {
         indexOrder,
         setIndexOrder: setIndexOrderAndPersist,
         indexData,
-        setIndexData,
       }}
     >
       {children}
