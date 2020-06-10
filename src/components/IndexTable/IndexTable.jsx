@@ -53,10 +53,7 @@ const IndexTable = () => {
                               provided.draggableProps.style
                             )}
                           >
-                            <IndexTableEntry
-                              index={indexData[item.symbol]}
-                              countryCode={item.country}
-                            />
+                            <IndexTableEntry index={indexData[item.symbol]} />
                           </div>
                         )}
                       </Draggable>

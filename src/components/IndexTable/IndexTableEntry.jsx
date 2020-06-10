@@ -1,10 +1,10 @@
 import React from "react";
 import { List, Flag } from "semantic-ui-react";
 
-const IndexTableEntry = ({ index, countryCode }) => (
+const IndexTableEntry = ({ index }) => (
   <List>
     <List.Item>
-      {index.index_name} {countryCode && <Flag name={countryCode} />}
+      {index.index_name} <Flag name={index.country} />
     </List.Item>
     <List.Item> {index.last_price}</List.Item>
     <List.Item
