@@ -33,11 +33,26 @@ const IndexContextProvider = ({ children }) => {
     setIndexOrder(indexOrder);
   };
 
+  const addToIndexOrder = (newIndex) => {
+    const newIndexOrder = Array.from(indexOrder);
+    newIndexOrder.push(newIndex);
+    setIndexOrderAndPersist(newIndexOrder);
+  };
+
+  const removeFromIndexOrder = (indexToRemove) => {
+    const newIndexOrder = indexOrder.filter(
+      (index) => indexToRemove.symbol !== index.symbol
+    );
+    setIndexOrderAndPersist(newIndexOrder);
+  };
+
   return (
     <IndexContext.Provider
       value={{
         indexOrder,
         setIndexOrder: setIndexOrderAndPersist,
+        addToIndexOrder,
+        removeFromIndexOrder,
         indexData,
       }}
     >
