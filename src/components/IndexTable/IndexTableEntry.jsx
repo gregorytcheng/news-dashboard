@@ -9,7 +9,12 @@ const IndexTableEntry = ({ index, countryCode }) => (
     <List.Item> {index.last_price}</List.Item>
     <List.Item
       style={{
-        color: index.percent_change[0] === "+" ? "green" : "red",
+        color:
+          index.percent_change[0] === "+"
+            ? "green"
+            : index.percent_change[0] === "-"
+            ? "red"
+            : "black",
       }}
     >
       {index.percent_change} ({index.point_change})
