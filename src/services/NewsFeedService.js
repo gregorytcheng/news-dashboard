@@ -1,8 +1,10 @@
 import axios from "axios";
 
+const herokuEndpoint = "https://news-dashboard-flask.herokuapp.com";
+
 export const getSources = () => {
   return axios
-    .get("http://127.0.0.1:5000/sources")
+    .get(`${herokuEndpoint}/sources`)
     .then((response) => {
       return response.data;
     })
@@ -11,7 +13,7 @@ export const getSources = () => {
 
 export const getHeadlines = (source) => {
   return axios
-    .get(`https://news-dashboard-flask.herokuapp.com/${source}`)
+    .get(`${herokuEndpoint}/${source}`)
     .then((response) => {
       return response.data;
     })
@@ -20,7 +22,7 @@ export const getHeadlines = (source) => {
 
 export const getIndexData = () => {
   return axios
-    .get("https://news-dashboard-flask.herokuapp.com/indices")
+    .get(`${herokuEndpoint}/indices`)
     .then((response) => {
       return response.data;
     })
