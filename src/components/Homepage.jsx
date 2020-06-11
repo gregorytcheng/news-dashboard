@@ -2,6 +2,7 @@ import React from "react";
 import IndexTable from "./IndexTable/IndexTable";
 import CustomizeIndexOrder from "./CustomizeIndexOrder/CustomizeIndexOrder";
 import NewsFeeds from "./NewsFeeds/NewsFeeds";
+import CustomizeNewsFeedOrder from "./CustomizeNewsFeedOrder/CustomizeNewsFeedOrder";
 
 const Homepage = () => {
   return (
@@ -9,6 +10,7 @@ const Homepage = () => {
       <IndexTable style={{ paddingTop: "2em" }} />
       <NewsFeeds />
       <CustomizeIndexOrder />
+      <CustomizeNewsFeedOrder />
     </>
   );
 };

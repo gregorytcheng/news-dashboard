@@ -17,8 +17,8 @@ const CustomizeIndexOrder = () => {
   const closePopup = () => setPopupOpen(false);
 
   return (
-    <div>
-      <Button onClick={openPopup}>Customize Indices</Button>
+    <>
+      <Button onClick={openPopup}>Customize indices</Button>
       <Portal onClose={closePopup} open={popupOpen}>
         <Segment
           style={{
@@ -69,7 +69,7 @@ const CustomizeIndexOrder = () => {
           />
         </Segment>
       </Portal>
-    </div>
+    </>
   );
 };
 
