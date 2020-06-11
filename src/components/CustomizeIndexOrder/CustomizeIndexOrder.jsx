@@ -17,8 +17,8 @@ const CustomizeIndexOrder = () => {
   const closePopup = () => setPopupOpen(false);
 
   return (
-    <div>
-      <Button onClick={openPopup}>Customize Indices</Button>
+    <>
+      <Button onClick={openPopup}>Customize indices</Button>
       <Portal onClose={closePopup} open={popupOpen}>
         <Segment
           style={{
@@ -30,8 +30,8 @@ const CustomizeIndexOrder = () => {
         >
           <Header>Customize indices</Header>
           <p>
-            Add or remove popular indices here. You can also rearrange the
-            indices on the dashboard.
+            Add or remove indices here. You can also rearrange the indices on
+            the dashboard.
           </p>
           {indexData && (
             <div style={{ overflow: "scroll", height: "500px" }}>
@@ -45,8 +45,8 @@ const CustomizeIndexOrder = () => {
                     key={index.index_name}
                     style={{
                       backgroundColor: indexExistsInOrder
-                        ? "lightgreen"
-                        : "darksalmon",
+                        ? "lightgrey"
+                        : "white",
                       padding: "1em 0 1em 0",
                     }}
                     onClick={
@@ -69,7 +69,7 @@ const CustomizeIndexOrder = () => {
           />
         </Segment>
       </Portal>
-    </div>
+    </>
   );
 };
 
