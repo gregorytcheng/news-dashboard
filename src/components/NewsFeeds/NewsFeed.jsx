@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getHeadlines } from "../services/NewsFeedService";
+import { getHeadlines } from "../../services/NewsFeedService";
 import { Feed, Header, Icon } from "semantic-ui-react";
 
 const NewsFeed = ({ source, title }) => {
