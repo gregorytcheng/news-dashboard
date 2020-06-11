@@ -9,8 +9,10 @@ const Homepage = () => {
     <>
       <IndexTable style={{ paddingTop: "2em" }} />
       <NewsFeeds />
-      <CustomizeIndexOrder />
-      <CustomizeNewsFeedOrder />
+      <div style={{ paddingTop: "1em" }}>
+        <CustomizeIndexOrder />
+        <CustomizeNewsFeedOrder />
+      </div>
     </>
   );
 };
