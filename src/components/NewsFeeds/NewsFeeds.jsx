@@ -50,16 +50,6 @@ const NewsFeeds = () => {
                 </Grid.Column>
               ))}
               {provided.placeholder}
-
-              {/* <Grid.Column>
-                  <NewsFeed title="CNBC" source="cnbc" />
-                </Grid.Column>
-                <Grid.Column>
-                  <NewsFeed title="Aljazeera" source="aljazeera" />
-                </Grid.Column>
-                <Grid.Column>
-                  <NewsFeed title="NPR" source="npr" />
-                </Grid.Column> */}
             </div>
           )}
         </Droppable>
